@@ -1,56 +1,145 @@
-import styles from "./signup.module.css"
-import { useReducer } from "react";
+import styles from "./signup.module.css";
+import { toast } from "react-hot-toast";
+import { useReducer, useState } from "react";
+import NewUser from "../newuser/newuser";
+import { getDoc, doc } from "firebase/firestore";
+import { firestore } from "../../library/firebase";
 
 let initialState = {
-    name: "",
-    number: "",
-}
+  name: "",
+  number: "",
+  code_sent: false,
+  code_generated: null,
+  verify: false,
+};
 
 function reducer(state, action) {
-    switch (action.type) {
-        case "typing":
+  switch (action.type) {
+    case "typing":
+      if (action.payload.name === "name") {
+        return {
+          ...state,
+          name: action.payload.value,
+        };
+      } else if (action.payload.name === "phoneNumber") {
+        return {
+          ...state,
+          number: action.payload.value,
+        };
+      } else {
+        return {
+          ...state,
+          code_generated: action.payload.value,
+        };
+      }
 
-            if (action.payload.name === "name") {
-                return {
-                    ...state,
-                    name: action.payload.value,
-                }
-            } else {
-                return {
-                    ...state,
-                    number: action.payload.value
-                }
-            }
-    }
+    case "code_sent":
+      return {
+        ...state,
+        code_sent: true,
+      };
+
+    case "code_generated":
+      return {
+        ...state,
+        sms: action.payload,
+      };
+
+    case "verified":
+      return {
+        ...state,
+        verify: true,
+      };
+  }
 }
 
 export default function Signup() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [key, setKey] = useState();
 
-    const [state, dispatch] = useReducer(reducer, initialState);
+  function handleChange(e) {
+    let name = e.target.name;
+    let value = e.target.value;
 
-    console.log(state)
+    dispatch({ type: "typing", payload: { name, value } });
+  }
 
-    function handleChange(e) {
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-        let name = e.target.name;
-        let value = e.target.value
+    const code = Math.floor(Math.random() * 10000);
 
-        dispatch({ type: "typing", payload: { name, value }})
+    dispatch({ type: "code_generated", payload: code });
+
+    await getDoc(doc(firestore, `api_key`, "api")).then((res) => {
+      setKey(res.data().key);
+    });
+
+    const data = {
+      number: state.number,
+      name: state.name,
+      sms: code,
+      key: key,
+    };
+
+    dispatch({ type: "code_sent" });
+
+    // integrate the api to use the SMS api
+    await fetch("/api/sms", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+
+    toast.success("Code Sent Successfully");
+  }
+
+  async function handleVerification(e) {
+    e.preventDefault();
+
+    if (state.sms == state.code_generated) {
+      dispatch({ type: "verified" });
+      toast.success("Verified");
     }
+  }
 
-    async function handleSubmit(e) {
-        e.preventDefault();
-
-        
-    }
-
-    return (
-        <div className={styles.signup_container}>
-            <form className={styles.signup_form}>
-                <input className={styles.input} name="phoneNumber" type="number" placeholder="Enter your phone number: +923121234567" onChange={handleChange} />
-                <input className={styles.input} name="name" type="name" placeholder="Enter your name" onChange={handleChange} />
-                <button className={styles.btn} onClick={handleSubmit}>Submit</button>
-            </form>
-        </div>
-    )
+  return (
+    <div className={styles.signup_container}>
+      <form className={styles.signup_form}>
+        <input
+          className={styles.input}
+          name="phoneNumber"
+          type="name"
+          placeholder="Phone number"
+          onChange={handleChange}
+        />
+        <input
+          className={styles.input}
+          name="name"
+          type="name"
+          placeholder="Username"
+          onChange={handleChange}
+        />
+        {state.code_sent ? (
+          <>
+            <input
+              className={styles.input}
+              name="verify"
+              placeholder="Enter the code"
+              onChange={handleChange}
+            />
+            <button className={styles.btn} onClick={handleVerification}>
+              Verify
+            </button>
+          </>
+        ) : (
+          <>
+            <button className={styles.btn} onClick={handleSubmit}>
+              Get a Code
+            </button>
+          </>
+        )}
+      </form>
+      {!state.verify && <NewUser name={state.name} />}
+    </div>
+  );
 }
