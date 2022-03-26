@@ -1,18 +1,47 @@
 import styles from "./signup.module.css"
 import { useReducer } from "react";
 
+let initialState = {
+    name: "",
+    number: "",
+}
+
+function reducer(state, action) {
+    switch (action.type) {
+        case "typing":
+
+            if (action.payload.name === "name") {
+                return {
+                    ...state,
+                    name: action.payload.value,
+                }
+            } else {
+                return {
+                    ...state,
+                    number: action.payload.value
+                }
+            }
+    }
+}
+
 export default function Signup() {
+
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    console.log(state)
 
     function handleChange(e) {
 
         let name = e.target.name;
         let value = e.target.value
+
+        dispatch({ type: "typing", payload: { name, value }})
     }
 
     async function handleSubmit(e) {
         e.preventDefault();
 
-
+        
     }
 
     return (
