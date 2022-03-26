@@ -5,6 +5,8 @@ export default function Signup() {
 
     function handleChange(e) {
 
+        let name = e.target.name;
+        let value = e.target.value
     }
 
     async function handleSubmit(e) {
