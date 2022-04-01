@@ -1,0 +1,14 @@
+.patient_form_container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.patient_form_container form {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  grid-auto-rows: 5rem;
+}

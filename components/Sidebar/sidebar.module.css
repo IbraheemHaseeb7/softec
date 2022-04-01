@@ -1,0 +1,54 @@
+.sidebar_container {
+  width: 15rem;
+  height: calc(100vh - 6rem);
+  position: fixed;
+  top: 6rem;
+  left: 0;
+  background-color: #181818;
+  box-shadow: -10px 20px 20px white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+
+.sidebar_container > div {
+  width: 95%;
+  height: 95%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.sidebar_container > div::-webkit-scrollbar {
+  width: 10px;
+  background-color: #3b3b3b;
+  border-radius: 10px;
+}
+
+.sidebar_container > div::-webkit-scrollbar-thumb {
+  background-color: #2a2a2a;
+  cursor: pointer;
+}
+
+.onebox_container {
+  width: 90%;
+  height: auto;
+  padding: 1rem 0;
+  display: grid;
+  grid-template-rows: 3rem;
+  grid-auto-rows: 3rem;
+}
+
+.onebox_container > button {
+  background-color: #3b3b3b;
+  margin: 0.25rem 0;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+}
+
+.onebox_container > button:hover {
+  background-color: #2a2a2a;
+}

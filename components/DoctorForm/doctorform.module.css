@@ -1,0 +1,70 @@
+.doctor_form_container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5rem;
+}
+
+.doctor_form_container form {
+  display: grid;
+  place-items: center;
+  grid-auto-rows: auto;
+  gap: 2rem;
+}
+
+.doctor_form_container form > input {
+  width: 30rem;
+}
+
+.working_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.working_container > input {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.doctor_form_container > form > h1 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px solid white;
+}
+
+.doctor_form_container > form > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.edu_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.edu_options_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.edu_options_container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}

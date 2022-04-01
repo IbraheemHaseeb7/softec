@@ -1,96 +1,17 @@
 .newuser_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-.doctor_container form, .patient_container form {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  position: absolute;
+  top: 6rem;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  grid-template-rows: 20vh 5vh auto;
+  flex-direction: column;
 }
 
-.newuser_form {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.input {
-    margin: 1rem;
-    background-color: #ffffff ;
-    text-align: center;
-    width: 250px;
-    height: 25px;
-    border: none;
-    color: black;
-    border-radius: 25px;
-    outline: none;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
-}
-
-.input:hover {
-    background-color: #f3f3f3;
-}
-
-.input:focus {
-    outline: none;
-    background-color: #ffffff;
-    color: black;
-}
-
-.textarea {
-    width: 90%;
-    height: 30vh;
-    border-radius: 1rem;
-    outline: none;
-    resize: none;
-    border: none;
-    padding: 1rem;
-    color: black;
-    margin: 1rem;
-}
-.textarea:hover{
-    background-color: #f3f3f3;
-}
-
-.btn {
-    color: white;
-    font-weight: 800;
-    font-size: 18px;
-    background: linear-gradient(90deg, rgba(199, 255, 255, 1) 0%, rgba(1, 288, 258, 1) 100%);
-    text-align: center;
-    width: 150px;
-    height: 35px;
-    border: none;
-    cursor: pointer;
-    border-radius: 25px;
-    margin: 1rem;
-}
-
-.btn:hover {
-    transform: scale(1.075);
-}
-
-.dob {
-    border: none;
-    outline: none;
-    color: black;
-    border-radius: 2rem;
-    padding: 0.5rem 1rem;
-    margin-bottom: 1rem;
-    cursor: pointer;
-}
-.dob:hover{
-    background-color: #f3f3f3;
-}
-
-.newuser_input {
-    background-color: black;
+.newuser_container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }

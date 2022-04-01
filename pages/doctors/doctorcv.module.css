@@ -1,0 +1,7 @@
+.doctor_container {
+  width: calc(100% - 15rem);
+  min-height: calc(100vh - 6rem);
+  position: absolute;
+  top: 6rem;
+  left: 15rem;
+}
