@@ -24,7 +24,7 @@ a {
   border: 1px solid white;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.2s ease;
 }
 
 .btn:hover {
