@@ -1,15 +1,7 @@
 import styles from "./doctorcard.module.css";
 import Link from "next/link";
 
-export default function DoctorCard({
-  email,
-  number,
-  working_weeks,
-  name,
-  address,
-  rated,
-  img,
-}) {
+export default function DoctorCard({ email, name, address, rated, img }) {
   return (
     <div className={styles.doctor_card_container}>
       <div className={styles.name_img_container}>

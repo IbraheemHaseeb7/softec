@@ -110,3 +110,66 @@
   justify-content: space-between;
   align-items: center;
 }
+
+/* REVIEWS STYLES */
+
+.reviews_container {
+  width: 16%;
+  position: fixed;
+  top: 6rem;
+  right: 0;
+  height: calc(100vh - 6rem);
+  box-shadow: 10px 25px 20px white;
+  display: grid;
+  grid-template-rows: 5rem;
+  grid-auto-rows: auto;
+  place-items: center;
+}
+
+.review {
+  width: 95%;
+  height: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.review::-webkit-scrollbar {
+  width: 10px;
+  background-color: #3b3b3b;
+  border-radius: 10px;
+}
+
+.review::-webkit-scrollbar-thumb {
+  background-color: #2a2a2a;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.review > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  padding: 1rem 0;
+  width: 95%;
+  margin-bottom: 1rem;
+  transform: translateY(13rem);
+}
+
+.review > div > img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.review > div > p {
+  text-align: justify;
+  width: 90%;
+}

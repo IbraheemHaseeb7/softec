@@ -1,4 +1,5 @@
 import styles from "./doctor.module.css";
+import Reviews from "./Reviews";
 
 export default function DoctorDescription({ doctor }) {
   // dereferencing the doctor's data
@@ -73,6 +74,7 @@ export default function DoctorDescription({ doctor }) {
           );
         })}
       </div>
+      <Reviews available={true} />
       <footer className={styles.contact_container}>
         <h2>Doctor's Contact Information</h2>
         <div>

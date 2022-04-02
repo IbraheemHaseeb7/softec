@@ -6,7 +6,6 @@
   grid-template-columns: 30% 70%;
   place-items: center;
   border-radius: 0.5rem;
-  z-index: 2;
 }
 
 .name_img_container {
