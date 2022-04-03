@@ -28,6 +28,12 @@ export default function DoctorForm() {
     education_array: [],
     occupation_array: [],
     specialist_array: [],
+    name: null,
+    address: null,
+    email: null,
+    charges: null,
+    doc_type: null,
+    number: null,
   });
 
   // array of the inputs
@@ -219,34 +225,47 @@ export default function DoctorForm() {
 
     const id = new Date().getTime().toString();
 
-    await setDoc(doc(firestore, `doctor`, id), {
-      id: id,
-      address: state.address,
-      name: state.name,
-      email: state.email,
-      number: state.number,
-      working_weeks: state.working_weeks,
-      doc: true,
-      uid: auth.currentUser?.uid,
-      doc_type: state.doc_type,
-      charges: state.charges,
-      reviewed: false,
-      img: auth.currentUser?.photoURL,
-      occupation_array: state.occupation_array,
-      education_array: state.education_array,
-      specialist_array: state.specialist_array,
-    });
+    if (
+      state.name &&
+      state.email &&
+      state.number &&
+      state.address &&
+      state.charges &&
+      state.doc_type &&
+      state.education_array &&
+      state.occupation_array &&
+      state.specialist_array &&
+      state.working_weeks
+    ) {
+      await setDoc(doc(firestore, `doctor`, id), {
+        id: id,
+        address: state.address,
+        name: state.name,
+        email: state.email,
+        number: state.number,
+        working_weeks: state.working_weeks,
+        doc: true,
+        uid: auth.currentUser?.uid,
+        doc_type: state.doc_type,
+        charges: state.charges,
+        reviewed: false,
+        img: auth.currentUser?.photoURL,
+        occupation_array: state.occupation_array,
+        education_array: state.education_array,
+        specialist_array: state.specialist_array,
+      });
 
-    await setDoc(doc(firestore, `users`, auth.currentUser?.uid), {
-      uid: auth.currentUser?.uid,
-      name: state.name,
-      email: state.email,
-      doc: true,
-    });
+      await setDoc(doc(firestore, `users`, auth.currentUser?.uid), {
+        uid: auth.currentUser?.uid,
+        name: state.name,
+        email: state.email,
+        doc: true,
+      });
 
-    toast.success("Account Created Successfully");
+      toast.success("Account Created Successfully");
 
-    router.push("/feed");
+      router.push("/feed");
+    }
   }
 
   return (

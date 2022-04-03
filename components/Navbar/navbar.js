@@ -27,6 +27,9 @@ export default function Navbar() {
         </Link>
         {auther && (
           <>
+            <Link href="/postnew">
+              <span className={styles.navbar_spans}>Post New</span>
+            </Link>
             <div
               onClick={async () => {
                 await signOut(auth);
@@ -36,10 +39,6 @@ export default function Navbar() {
             >
               <span className={styles.navbar_spans}>Sign Out</span>
             </div>
-
-            <Link href="/postnew">
-              <span className={styles.navbar_spans}>Post New</span>
-            </Link>
           </>
         )}
       </div>

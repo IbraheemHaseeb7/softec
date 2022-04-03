@@ -67,6 +67,7 @@ export default function Edu({
         onChange={handleChange}
         value={value}
         name={name}
+        required
         placeholder={placeholder}
       />
       {edit && (

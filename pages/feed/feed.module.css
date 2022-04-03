@@ -9,6 +9,6 @@
   top: 6rem;
   right: 0;
   display: grid;
-  grid-auto-rows: 17rem;
+  grid-auto-rows: 14rem;
   place-items: center;
 }

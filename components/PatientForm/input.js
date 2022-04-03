@@ -17,6 +17,7 @@ export default function Input({ value, name, placeholder, type, dispatch }) {
         placeholder={placeholder}
         onChange={handleChange}
         type={type}
+        required
       />
     </>
   );
