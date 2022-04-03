@@ -13,7 +13,6 @@ export default function useAuth() {
       const accountCheck = async () => {
         await getDoc(doc(firestore, `users`, auth.currentUser?.uid)).then(
           (res) => {
-            console.log(res.data());
             if (res.data() === undefined) {
               setAccount(false);
             } else {

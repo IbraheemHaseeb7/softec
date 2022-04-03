@@ -44,8 +44,15 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin: 1rem 0;
+}
+
+.edu_container > div > div {
+  width: 30%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .working_container {

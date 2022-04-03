@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar_container}>
       <Link href="/feed">
-        <h1>Logo</h1>
+        <h1>{auth.currentUser?.email}</h1>
       </Link>
       <div className={styles.navigations}>
         <Link href="/">

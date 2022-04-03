@@ -46,6 +46,18 @@ export default function DoctorForm() {
       placeholder: "Address",
       value: state.address,
     },
+    {
+      type: "name",
+      name: "charges",
+      placeholder: "Charges/hour($)",
+      value: state.charges,
+    },
+    {
+      type: "name",
+      name: "doc_type",
+      placeholder: "Urologist, Heart Specialist, or....",
+      value: state.doc_type,
+    },
   ];
 
   // array for the radio buttons of working
@@ -215,6 +227,10 @@ export default function DoctorForm() {
       number: state.number,
       working_weeks: state.working_weeks,
       doc: true,
+      uid: auth.currentUser?.uid,
+      doc_type: state.doc_type,
+      charges: state.charges,
+      reviewed: false,
       img: auth.currentUser?.photoURL,
       occupation_array: state.occupation_array,
       education_array: state.education_array,

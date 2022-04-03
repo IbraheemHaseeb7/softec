@@ -1,0 +1,51 @@
+.textarea {
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 5rem;
+  font-size: 1.25rem;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  resize: none;
+  padding: 0.25rem 0.5rem;
+}
+
+.see_msg_container {
+  width: 95%;
+  height: calc(100vh - 12rem);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+}
+
+/* one message styles */
+.one_msg_container {
+  max-width: 60%;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0.5rem 1rem;
+}
+
+.one_msg_container > p,
+.one_msg_container > pre {
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.send_msg_container {
+  width: 95%;
+}
+
+.send_msg_container > form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}

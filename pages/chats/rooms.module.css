@@ -1,0 +1,10 @@
+.room_container {
+  position: absolute;
+  top: 6rem;
+  right: 0;
+  width: calc(100% - 15rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
